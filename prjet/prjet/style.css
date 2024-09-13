@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+h2, h3, h4 {
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-list, .user-list {
+    list-style-type: none;
+
+    padding: 0;
+
+}
+
+.task-list li, .user-list li {
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input, select {
+    margin: 5px 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#taskCreaUserLab, #userCreaNameLab, #userCreaPostLab, #taskCreaNameLab, #taskCreaDescLab {
+    display: block;
+}
+
+#error-message {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+li:hover {
+    background-color: #f9f9f9;
+}
+
+/* Conteneurs */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container div {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+/* Style des listes de tâches */
+.task-list {
+    background-color: #e8f0f2;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h4 {
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Utilisateurs */
+.user-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.user-list li ul {
+    margin-top: 10px;
+}
+
+
+.user-list li ul {
+    margin-left: 20px;
+}
+
+/* Formulaires de création */
+.form-group {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group h3 {
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
