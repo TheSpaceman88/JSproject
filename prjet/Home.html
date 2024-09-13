@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prello</title>
+    <script src="task.js"></script> <!-- Inclusion du fichier task.js -->
+    <style src="style.css"></style>
+</head>
+<body>
+    <h3>Liste des tâches :</h3>
+
+    <div>
+        <h4>Liste 1 : Tâches avec état 1</h4>
+        <ul id="taskList1"></ul>
+    </div>
+
+    <div>
+        <h4>Liste 2 : Tâches avec état 2</h4>
+        <ul id="taskList2"></ul>
+    </div>
+
+    <div>
+        <h4>Liste 3 : Tâches avec état 3</h4>
+        <ul id="taskList3"></ul>
+    </div>
+
+    <button onclick="taskCreator()">Créer une tâche</button>
+    
+    <label id="taskCreaNameLab" style="display: none;">Nom de la tâche</label>
+    <input type="text" class="hide" id="taskCreaName" name="nom de la tache" required style="display: none;" />
+    
+    <label id="taskCreaDescLab" style="display: none;">Description</label>
+    <input type="text" class="hide" id="taskCreaDesc" name="description" required style="display: none;" />
+    
+    <label id="taskStateLab" style="display: none;">État de la tâche (1, 2 ou 3)</label>
+    <input type="number" class="hide" id="taskState" name="état" min="1" max="3" required style="display: none;" />
+
+    <button onclick="send()" style="display: none;" id="taskCrea">Envoyer</button>
+
+    <script>
+        let tasks = [];
+
+        function taskCreator() {
+            // Afficher les champs de création de tâche
+            document.getElementById("taskCreaName").style.display = "block";
+            document.getElementById("taskCreaDesc").style.display = "block";
+            document.getElementById("taskState").style.display = "block";
+            document.getElementById("taskCreaNameLab").style.display = "block";
+            document.getElementById("taskCreaDescLab").style.display = "block";
+            document.getElementById("taskStateLab").style.display = "block";
+            document.getElementById("taskCrea").style.display = "block";
+        }
+
+        function send() {
+            // Récupérer les valeurs des champs
+            let taskName = document.getElementById('taskCreaName').value;
+            let taskDesc = document.getElementById('taskCreaDesc').value;
+            let taskState = parseInt(document.getElementById('taskState').value); // État de la tâche
+
+            // Créer une nouvelle tâche et l'ajouter au tableau de tâches
+            let task = new Task(taskName, taskDesc);  // Utilisation de la classe Task du fichier task.js
+            task.state = taskState; // Définir l'état de la tâche
+            tasks.push(task);
+
+            // Ajouter cette tâche à la bonne liste en fonction de son état
+            if (task.state === 1) {
+                addTaskToList('taskList1', task);
+            } else if (task.state === 2) {
+                addTaskToList('taskList2', task);
+            } else if (task.state === 3) {
+                addTaskToList('taskList3', task);
+            }
+
+            // Réinitialiser les champs de saisie
+            document.getElementById('taskCreaName').value = "";
+            document.getElementById('taskCreaDesc').value = "";
+            document.getElementById('taskState').value = "";
+        }
+
+        function addTaskToList(listId, task) {
+            let taskList = document.getElementById(listId);
+            let listItem = document.createElement('li');
+            listItem.textContent = `${task.name}: ${task.desc}`;
+            taskList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
