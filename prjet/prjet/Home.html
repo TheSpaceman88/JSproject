@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prello - Gestion des Tâches et des Utilisateurs</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="task.js"></script> 
+    <script src="user.js"></script> 
+    <script src="main.js"></script> 
+</head>
+<body>
+    <h2>Gestion des utilisateurs</h2>
+
+
+    <h3>Liste des utilisateurs :</h3>
+    <ul id="userList" class="user-list"></ul>
+
+    <button onclick="userCreator()">Ajouter un utilisateur</button>
+    <label id="userCreaNameLab" style="display: none;">Nom de l'utilisateur</label>
+    <input type="text" id="userCreaName" required style="display: none;" />
+    
+    <label id="userCreaPostLab" style="display: none;">Poste</label>
+    <input type="text" id="userCreaPost" required style="display: none;" />
+
+    <button onclick="addUser()" style="display: none;" id="userCrea">Envoyer</button>
+
+    <hr/>
+
+    <h2>Gestion des tâches</h2>
+
+
+    <h3>Liste des tâches :</h3>
+
+    <div class="container">
+        <div>
+            <h4>Liste 1 : Tâches avec état 1</h4>
+            <ul id="taskList1" class="task-list"></ul>
+        </div>
+
+        <div>
+            <h4>Liste 2 : Tâches avec état 2</h4>
+            <ul id="taskList2" class="task-list"></ul>
+        </div>
+
+        <div>
+            <h4>Liste 3 : Tâches avec état 3</h4>
+            <ul id="taskList3" class="task-list"></ul>
+        </div>
+    </div>
+
+    <button onclick="taskCreator()">Créer une tâche</button>
+
+    <label id="taskCreaNameLab" style="display: none;">Nom de la tâche</label>
+    <input type="text" id="taskCreaName" required style="display: none;" />
+
+    <label id="taskCreaDescLab" style="display: none;">Description</label>
+    <input type="text" id="taskCreaDesc" required style="display: none;" />
+
+
+    <label id="taskCreaUserLab" style="display: none;">Assigner à un utilisateur</label>
+    <select id="taskCreaUser" style="display: none;"></select>
+
+    <button onclick="sendTask()" style="display: none;" id="taskCrea">Envoyer</button>
+
+
+    <p id="error-message" style="display: none; color: red;">Il n'y a pas d'utilisateur créé. Veuillez d'abord ajouter un utilisateur.</p>
+
+
+    
+</body>
+</html>
